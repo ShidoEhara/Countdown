@@ -16,6 +16,7 @@ dt_target2 = datetime.datetime(2020, 2, 6, 17, 0, 0, 0) # 修論提出日時を�
 
 pygame.init()
 SCREEN = pygame.display.set_mode((WIDTH, HIGHT))
+# SCREEN = pygame.display.set_mode((WIDTH, HIGHT)，FULLSCREEN) # raspi用
 CLOCK = pygame.time.Clock()
 
 
@@ -26,6 +27,7 @@ def main():
     font_mincho20 = pygame.font.Font('ipam.ttf', 20) # 明朝体フォントの読み込み
     font_mincho30 = pygame.font.Font('ipam.ttf', 35) # 明朝体フォントの読み込み
     font1 = pygame.font.SysFont('arial', 50)
+    # font1 = pygame.font.SysFont('arial', 30) # raspi用
     cnt = 0 # カウンタの初期化
 
     #=== 音楽の再生 ===#
@@ -64,8 +66,10 @@ def main():
             # alertのテキストと枠描画
             SCREEN.blit(alert1, [20, 100])
             pygame.draw.rect(SCREEN, (247, 16, 0), Rect(20, 99, 152, 33), 3)
+            # pygame.draw.rect(SCREEN, (247, 16, 0), Rect(30, 99, 152, 33), 3) # raspi用
             SCREEN.blit(alert2, [180, 100])
             pygame.draw.rect(SCREEN, (247, 16, 0), Rect(180, 99, 224, 33), 3)
+            # pygame.draw.rect(SCREEN, (247, 16, 0), Rect(200, 99, 224, 33), 3) # raspi用
             # 斜め線の描画
             pygame.draw.line(SCREEN, (247, 16, 0), (540, 50), (640, -50), 30)
             pygame.draw.line(SCREEN, (247, 16, 0), (540, 100), (640, 0), 30)
@@ -94,8 +98,10 @@ def main():
             # alertのテキストと枠描画
             SCREEN.blit(alert1, [20, 340])
             pygame.draw.rect(SCREEN, (247, 16, 0), Rect(20, 339, 152, 33), 3)
+            # pygame.draw.rect(SCREEN, (247, 16, 0), Rect(30, 339, 152, 33), 3) # raspi用
             SCREEN.blit(alert2, [180, 340])
             pygame.draw.rect(SCREEN, (247, 16, 0), Rect(180, 339, 224, 33), 3)
+            # pygame.draw.rect(SCREEN, (247, 16, 0), Rect(200, 339, 224, 33), 3) # raspi用
             # 斜め線の描画
             pygame.draw.line(SCREEN, (247, 16, 0), (540, 290), (590, 240), 30)
             pygame.draw.line(SCREEN, (247, 16, 0), (540, 340), (640, 240), 30)
