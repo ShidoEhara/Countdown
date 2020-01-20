@@ -26,13 +26,14 @@ def main():
     font_7seg = pygame.font.Font('DSEG7ModernMini-BoldItalic.ttf', 50) # 7セグフォントの読み込み
     font_mincho20 = pygame.font.Font('ipam.ttf', 20) # 明朝体フォントの読み込み
     font_mincho30 = pygame.font.Font('ipam.ttf', 35) # 明朝体フォントの読み込み
-    font1 = pygame.font.SysFont('arial', 50)
-    # font1 = pygame.font.SysFont('arial', 30) # raspi用
+    # font1 = pygame.font.SysFont('arial', 50)
+    font1 = pygame.font.SysFont('arial', 35) # raspi用
     cnt = 0 # カウンタの初期化
 
     #=== 音楽の再生 ===#
     pygame.mixer.init(frequency = 44100)
-    pygame.mixer.music.load("yashima.mp3")
+    # pygame.mixer.music.load("yashima.mp3")
+    pygame.mixer.music.load("01 3EM01_EM20_Master.mp3")
     pygame.mixer.music.play(-1)
 
     #=== timedelta型から日数，時間，分，秒，ミリ秒を抽出 ===#
@@ -64,12 +65,12 @@ def main():
         #=== 点滅部分の描画 ===#
         if(cnt % 2 == 1):
             # alertのテキストと枠描画
-            SCREEN.blit(alert1, [20, 100])
-            pygame.draw.rect(SCREEN, (247, 16, 0), Rect(20, 99, 152, 33), 3)
-            # pygame.draw.rect(SCREEN, (247, 16, 0), Rect(30, 99, 152, 33), 3) # raspi用
-            SCREEN.blit(alert2, [180, 100])
-            pygame.draw.rect(SCREEN, (247, 16, 0), Rect(180, 99, 224, 33), 3)
-            # pygame.draw.rect(SCREEN, (247, 16, 0), Rect(200, 99, 224, 33), 3) # raspi用
+            SCREEN.blit(alert1, [35, 95])
+            # pygame.draw.rect(SCREEN, (247, 16, 0), Rect(20, 99, 152, 33), 3)
+            pygame.draw.rect(SCREEN, (247, 16, 0), Rect(20, 99, 152, 33), 3) # raspi用
+            SCREEN.blit(alert2, [200, 95])
+            # pygame.draw.rect(SCREEN, (247, 16, 0), Rect(180, 99, 224, 33), 3)
+            pygame.draw.rect(SCREEN, (247, 16, 0), Rect(180, 99, 224, 33), 3) # raspi用
             # 斜め線の描画
             pygame.draw.line(SCREEN, (247, 16, 0), (540, 50), (640, -50), 30)
             pygame.draw.line(SCREEN, (247, 16, 0), (540, 100), (640, 0), 30)
@@ -96,12 +97,10 @@ def main():
         #=== 点滅部分の描画 ===#
         if(cnt % 2 == 1):
             # alertのテキストと枠描画
-            SCREEN.blit(alert1, [20, 340])
-            pygame.draw.rect(SCREEN, (247, 16, 0), Rect(20, 339, 152, 33), 3)
-            # pygame.draw.rect(SCREEN, (247, 16, 0), Rect(30, 339, 152, 33), 3) # raspi用
-            SCREEN.blit(alert2, [180, 340])
-            pygame.draw.rect(SCREEN, (247, 16, 0), Rect(180, 339, 224, 33), 3)
-            # pygame.draw.rect(SCREEN, (247, 16, 0), Rect(200, 339, 224, 33), 3) # raspi用
+            SCREEN.blit(alert1, [35, 335])
+            pygame.draw.rect(SCREEN, (247, 16, 0), Rect(20, 339, 152, 33), 3) # raspi用
+            SCREEN.blit(alert2, [200, 335])
+            pygame.draw.rect(SCREEN, (247, 16, 0), Rect(180, 339, 224, 33), 3) # raspi用
             # 斜め線の描画
             pygame.draw.line(SCREEN, (247, 16, 0), (540, 290), (590, 240), 30)
             pygame.draw.line(SCREEN, (247, 16, 0), (540, 340), (640, 240), 30)
