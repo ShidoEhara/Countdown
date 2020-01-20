@@ -23,17 +23,17 @@ CLOCK = pygame.time.Clock()
 def main():
     #=== 初期設定 ===#
     pygame.display.set_caption("Countdown ver EVA") # タイトルバーに表示する文字
-    font_7seg = pygame.font.Font('DSEG7ModernMini-BoldItalic.ttf', 50) # 7セグフォントの読み込み
-    font_mincho20 = pygame.font.Font('ipam.ttf', 20) # 明朝体フォントの読み込み
-    font_mincho30 = pygame.font.Font('ipam.ttf', 35) # 明朝体フォントの読み込み
+    font_7seg = pygame.font.Font('font/DSEG7ModernMini-BoldItalic.ttf', 50) # 7セグフォントの読み込み
+    font_mincho20 = pygame.font.Font('font/ipam.ttf', 20) # 明朝体フォントの読み込み
+    font_mincho30 = pygame.font.Font('font/ipam.ttf', 35) # 明朝体フォントの読み込み
     # font1 = pygame.font.SysFont('arial', 50)
     font1 = pygame.font.SysFont('arial', 35) # raspi用
     cnt = 0 # カウンタの初期化
 
     #=== 音楽の再生 ===#
     pygame.mixer.init(frequency = 44100)
-    # pygame.mixer.music.load("yashima.mp3")
-    pygame.mixer.music.load("01 3EM01_EM20_Master.mp3")
+    # pygame.mixer.music.load("music/yashima.mp3")
+    pygame.mixer.music.load("music/01 3EM01_EM20_Master.mp3")
     pygame.mixer.music.play(-1)
 
     #=== timedelta型から日数，時間，分，秒，ミリ秒を抽出 ===#
@@ -60,7 +60,7 @@ def main():
         alert2 = font1.render("EMERGENCY", True, (247, 16, 0))
         countdown1 = font_7seg.render("{0[0]:02d}  {0[1]:02d}    {0[2]:02d}  {0[3]:02d}  {0[4]:03.0f}".format(get_time(dt_delta1)), True, (247,214,0))
         unit1 = font_mincho20.render("         d           h         m          s            ms", True, (248, 169, 0))
-        unit2 = font_mincho20.render("        日        時間        分         秒            耗", True, (248, 169, 0))
+        unit2 = font_mincho20.render("        日        時間        分         秒            粍", True, (248, 169, 0))
 
         #=== 点滅部分の描画 ===#
         if(cnt % 2 == 1):
@@ -80,7 +80,7 @@ def main():
         #=== テキストと枠の描画 ===#
         pygame.draw.rect(SCREEN, (0, 0, 0), Rect(540, 0, 100, 155), 30)
         SCREEN.blit(title1, [20, 20])
-        SCREEN.blit(title2, [20, 60])
+        SCREEN.blit(title2, [20, 55])
         SCREEN.blit(countdown1, [49, 160])
         SCREEN.blit(unit1, [50, 160])
         SCREEN.blit(unit2, [50, 190])
@@ -92,7 +92,7 @@ def main():
         title3 = font_mincho30.render("修論提出まであと", True, (248, 169, 0))
         countdown2 = font_7seg.render("{0[0]:02d}  {0[1]:02d}    {0[2]:02d}  {0[3]:02d}  {0[4]:03.0f}".format(get_time(dt_delta2)), True, (247,214,0))
         unit1 = font_mincho20.render("         d           h         m          s            ms", True, (248, 169, 0))
-        unit2 = font_mincho20.render("        日        時間        分         秒            耗", True, (248, 169, 0))
+        unit2 = font_mincho20.render("        日        時間        分         秒            粍", True, (248, 169, 0))
 
         #=== 点滅部分の描画 ===#
         if(cnt % 2 == 1):
@@ -110,7 +110,7 @@ def main():
         #=== テキストと枠の描画 ===#
         pygame.draw.rect(SCREEN, (0, 0, 0), Rect(540, 240, 100, 155), 30)
         SCREEN.blit(title3, [20, 260])
-        SCREEN.blit(title2, [20, 300])
+        SCREEN.blit(title2, [20, 295])
         SCREEN.blit(countdown2, [49, 400])
         SCREEN.blit(unit1, [50, 400])
         SCREEN.blit(unit2, [50, 430])
