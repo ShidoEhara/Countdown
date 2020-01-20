@@ -15,18 +15,23 @@ dt_target2 = datetime.datetime(2020, 2, 6, 17, 0, 0, 0) # 修論提出日時を�
 
 
 pygame.init()
-SCREEN = pygame.display.set_mode((640, 480))
+SCREEN = pygame.display.set_mode((WIDTH, HIGHT))
 CLOCK = pygame.time.Clock()
 
 
 def main():
-    """ main routine """
+    #=== 初期設定 ===#
     pygame.display.set_caption("Countdown ver EVA") # タイトルバーに表示する文字
     font_7seg = pygame.font.Font('DSEG7ModernMini-BoldItalic.ttf', 50) # 7セグフォントの読み込み
     font_mincho20 = pygame.font.Font('ipam.ttf', 20) # 明朝体フォントの読み込み
     font_mincho30 = pygame.font.Font('ipam.ttf', 35) # 明朝体フォントの読み込み
     font1 = pygame.font.SysFont('arial', 50)
     cnt = 0 # カウンタの初期化
+
+    #=== 音楽の再生 ===#
+    pygame.mixer.init(frequency = 44100)
+    pygame.mixer.music.load("yashima.mp3")
+    pygame.mixer.music.play(-1)
 
     #=== timedelta型から日数，時間，分，秒，ミリ秒を抽出 ===#
     def get_time(sec):
