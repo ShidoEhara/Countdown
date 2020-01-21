@@ -24,8 +24,8 @@ def main():
     #=== 初期設定 ===#
     pygame.display.set_caption("Countdown ver EVA") # タイトルバーに表示する文字
     font_7seg = pygame.font.Font('font/DSEG7ModernMini-BoldItalic.ttf', 50) # 7セグフォントの読み込み
-    font_mincho20 = pygame.font.Font('font/ipam.ttf', 20) # 明朝体フォントの読み込み
-    font_mincho30 = pygame.font.Font('font/ipam.ttf', 35) # 明朝体フォントの読み込み
+    font_mincho20 = pygame.font.Font('font/AozoraMincho-bold.ttf', 20) # 明朝体フォントの読み込み
+    font_mincho30 = pygame.font.Font('font/AozoraMincho-bold.ttf', 35) # 明朝体フォントの読み込み
     # font1 = pygame.font.SysFont('arial', 50)
     font1 = pygame.font.SysFont('arial', 35) # raspi用
     cnt = 0 # カウンタの初期化
