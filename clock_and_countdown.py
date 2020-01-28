@@ -12,6 +12,7 @@ HIGHT = 480 # 画面高さを設定
 dt_target1 = datetime(2020, 2, 18, 9, 0, 0, 0) # コアタイムを設定
 YAMABUKI = (248, 169, 0)
 YELLOW = (247,214,0)
+RED = (247, 16, 0)
 
 
 pygame.init()
@@ -65,8 +66,8 @@ def main():
         date = font_7segL.render(dt_now.strftime("%H  %M  %S"), True, YELLOW)
         unit1 = font_M.render("  h               m                s", True, YAMABUKI)
         unit2 = font_minchoM.render("時          分           秒", True, YAMABUKI)
-        # alert1 = font_L.render("DANGER", True, (247, 16, 0))
-        alert1 = font_L.render("WARNING", True, (247, 16, 0))
+        # alert1 = font_L.render("DANGER", True, (RED))
+        alert1 = font_L.render("WARNING", True, (RED))
 
         pygame.draw.rect(SCREEN, (0, 0, 0), Rect(540, 0, 100, 155), 30)
         SCREEN.blit(title1, [20, 20])
