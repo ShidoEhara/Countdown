@@ -37,7 +37,8 @@ def main():
     #=== 音楽の再生 ===#
     pygame.mixer.init(frequency = 44100)
     # pygame.mixer.music.load("music/yashima.mp3")
-    pygame.mixer.music.load("music/01 3EM01_EM20_Master.mp3")
+    # pygame.mixer.music.load("music/01 3EM01_EM20_Master.mp3")
+    pygame.mixer.music.load("music/evangelion_OST.mp3")
     pygame.mixer.music.play(-1)
 
     #=== timedelta型から日数，時間，分，秒，ミリ秒を抽出 ===#
