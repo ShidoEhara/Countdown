@@ -78,8 +78,30 @@ def main():
         unit1 = font2.render("           d                       h                 m                   s                         ms", True, CHAR_COLOR)
         unit2 = font_mincho20.render("        日              時間             分              秒                    粍", True, CHAR_COLOR)
 
+        #=== 残り時間による音楽の変更 ===#
+        if get_time(dt_delta1)[0:4] == (0, 0, 30, 0):
+            pygame.mixer.music.stop()
+            pygame.mixer.music.load("music/yashima.mp3")
+            pygame.mixer.music.play(1)
+        if get_time(dt_delta1)[0:4] == (0, 0, 2, 30):
+            pygame.mixer.music.stop()
+            pygame.mixer.music.load("music/The_Beast.mp3")
+            pygame.mixer.music.play(1)
+        if get_time(dt_delta1)[0:4] == (-1, 23, 59, 53):
+            pygame.mixer.music.stop()
+            pygame.mixer.music.load("music/Wings_to_Fly.mp3")
+            pygame.mixer.music.play(1)
+        if get_time(dt_delta1)[0:4] == (-1, 23, 55, 6):
+            pygame.mixer.music.stop()
+            pygame.mixer.music.load("music/The_Cruel_Angel's_Thesis.mp3")
+            pygame.mixer.music.play(1)
+        if get_time(dt_delta1)[0:4] == (-1, 23, 51, 3):
+            pygame.mixer.music.stop()
+            pygame.mixer.music.load("music/yashima.mp3")
+            pygame.mixer.music.play(-1)
+
         #=== 点滅部分の描画 ===#
-        if get_time(dt_delta1)[0] < 0:
+        if dt_delta1 <= 150 and dt_delta1 >= 0:
             if(cnt == 0 or cnt == 1 or cnt == 2):
                 # alertのテキストと枠描画
                 SCREEN.blit(alert1, [35, 95])
@@ -91,6 +113,17 @@ def main():
                 pygame.draw.line(SCREEN, RED, (540, 100), (640, 0), 30)
                 pygame.draw.line(SCREEN, RED, (540, 150), (640, 50), 30)
                 pygame.draw.line(SCREEN, RED, (580, 160), (640, 100), 30)
+        elif dt_delta1 < 0:
+            # alertのテキストと枠描画
+            SCREEN.blit(alert1, [35, 95])
+            pygame.draw.rect(SCREEN, RED, Rect(20, 99, 152, 33), 3)
+            SCREEN.blit(alert2, [200, 95])
+            pygame.draw.rect(SCREEN, RED, Rect(180, 99, 224, 33), 3)
+            # 斜め線の描画
+            pygame.draw.line(SCREEN, RED, (540, 50), (640, -50), 30)
+            pygame.draw.line(SCREEN, RED, (540, 100), (640, 0), 30)
+            pygame.draw.line(SCREEN, RED, (540, 150), (640, 50), 30)
+            pygame.draw.line(SCREEN, RED, (580, 160), (640, 100), 30)
         else:
             # 斜め線の描画
             pygame.draw.line(SCREEN, RED, (540, 50), (640, -50), 30)
@@ -103,8 +136,8 @@ def main():
         SCREEN.blit(title1, [20, 20])
         SCREEN.blit(title2, [20, 55])
         SCREEN.blit(countdown1, [49, 160])
-        SCREEN.blit(unit1, [85, 160])
-        SCREEN.blit(unit2, [85, 190])
+        SCREEN.blit(unit1, [83, 160])
+        SCREEN.blit(unit2, [83, 190])
         pygame.draw.rect(SCREEN, YAMABUKI, Rect(10, 10, 620, 210), 3)
 
         dt_delta2 = (dt_target2 - dt_now).total_seconds() # 締め切りまでの時間を秒で取得
@@ -119,6 +152,7 @@ def main():
             TIME_COLOR = YELLOW
             ALERT_COLOR = RED
         title3 = font_mincho30.render("修論提出まであと", True, CHAR_COLOR)
+        title4 = font1.render("ACTIVE TIME REMAINING:", True, CHAR_COLOR)
         if get_time(dt_delta2)[0] >= 0:
             countdown2 = font_7seg.render("{0[0]:02d}  {0[1]:02d}    {0[2]:02d}  {0[3]:02d}  {0[4]:03.0f}".format(get_time(dt_delta2)), True, TIME_COLOR)
         else:
@@ -126,8 +160,30 @@ def main():
         unit1 = font2.render("           d                       h                 m                   s                         ms", True, CHAR_COLOR)
         unit2 = font_mincho20.render("        日              時間             分              秒                    粍", True, CHAR_COLOR)
 
+        #=== 残り時間による音楽の変更 ===#
+        if get_time(dt_delta2)[0:4] == (0, 0, 30, 0):
+            pygame.mixer.music.stop()
+            pygame.mixer.music.load("music/yashima.mp3")
+            pygame.mixer.music.play(1)
+        if get_time(dt_delta2)[0:4] == (0, 0, 2, 30):
+            pygame.mixer.music.stop()
+            pygame.mixer.music.load("music/The_Beast.mp3")
+            pygame.mixer.music.play(1)
+        if get_time(dt_delta2)[0:4] == (-1, 23, 59, 53):
+            pygame.mixer.music.stop()
+            pygame.mixer.music.load("music/Wings_to_Fly.mp3")
+            pygame.mixer.music.play(1)
+        if get_time(dt_delta2)[0:4] == (-1, 23, 55, 6):
+            pygame.mixer.music.stop()
+            pygame.mixer.music.load("music/The_Cruel_Angel's_Thesis.mp3")
+            pygame.mixer.music.play(1)
+        if get_time(dt_delta2)[0:4] == (-1, 23, 51, 3):
+            pygame.mixer.music.stop()
+            pygame.mixer.music.load("music/yashima.mp3")
+            pygame.mixer.music.play(-1)
+
         #=== 点滅部分の描画 ===#
-        if get_time(dt_delta2)[0] < 0:
+        if dt_delta2 <= 150 and dt_delta2 >= 0:
             if(cnt == 0 or cnt == 1 or cnt == 2):
                 # alertのテキストと枠描画
                 SCREEN.blit(alert1, [35, 335])
@@ -139,6 +195,17 @@ def main():
                 pygame.draw.line(SCREEN, RED, (540, 340), (640, 240), 30)
                 pygame.draw.line(SCREEN, RED, (540, 390), (640, 290), 30)
                 pygame.draw.line(SCREEN, RED, (580, 400), (640, 340), 30)
+        elif dt_delta2 < 0:
+            # alertのテキストと枠描画
+            SCREEN.blit(alert1, [35, 335])
+            pygame.draw.rect(SCREEN, RED, Rect(20, 339, 152, 33), 3) # raspi用
+            SCREEN.blit(alert2, [200, 335])
+            pygame.draw.rect(SCREEN, RED, Rect(180, 339, 224, 33), 3) # raspi用
+            # 斜め線の描画
+            pygame.draw.line(SCREEN, RED, (540, 290), (590, 240), 30)
+            pygame.draw.line(SCREEN, RED, (540, 340), (640, 240), 30)
+            pygame.draw.line(SCREEN, RED, (540, 390), (640, 290), 30)
+            pygame.draw.line(SCREEN, RED, (580, 400), (640, 340), 30)
         else:
             # 斜め線の描画
             pygame.draw.line(SCREEN, RED, (540, 290), (590, 240), 30)
@@ -149,10 +216,10 @@ def main():
         #=== テキストと枠の描画 ===#
         pygame.draw.rect(SCREEN, (0, 0, 0), Rect(540, 240, 100, 155), 30)
         SCREEN.blit(title3, [20, 260])
-        SCREEN.blit(title2, [20, 295])
+        SCREEN.blit(title4, [20, 295])
         SCREEN.blit(countdown2, [49, 400])
-        SCREEN.blit(unit1, [85, 400])
-        SCREEN.blit(unit2, [85, 430])
+        SCREEN.blit(unit1, [83, 400])
+        SCREEN.blit(unit2, [83, 430])
         pygame.draw.rect(SCREEN, YAMABUKI, Rect(10, 250, 620, 210), 3)
 
         pygame.display.update() # 画面を更新
