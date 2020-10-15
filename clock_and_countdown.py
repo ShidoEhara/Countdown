@@ -8,7 +8,7 @@ import sys
 
 """ parameter """
 WIDTH = 640 # 画面幅を設定
-HIGHT = 480 # 画面高さを設定
+HEIGHT = 480 # 画面高さを設定
 dt_target1 = datetime(2020, 10, 16, 9, 0, 0, 0) # コアタイムを設定
 YAMABUKI = (248, 169, 0)
 YELLOW = (247,214,0)
@@ -16,8 +16,8 @@ RED = (247, 16, 0)
 
 
 pygame.init()
-SCREEN = pygame.display.set_mode((WIDTH, HIGHT))
-# SCREEN = pygame.display.set_mode((WIDTH, HIGHT)，FULLSCREEN) # raspi用
+SCREEN = pygame.display.set_mode((WIDTH, HEIGHT))
+# SCREEN = pygame.display.set_mode((WIDTH, HEIGHT), FULLSCREEN) # raspi用
 CLOCK = pygame.time.Clock()
 
 
