@@ -10,8 +10,8 @@ import sys
 #=== パラメータの設定 ===#
 WIDTH = 640 # 画面幅を設定
 HIGHT = 480 # 画面高さを設定
-dt_target1 = datetime.datetime(2020, 2, 4, 23, 59, 59, 999) # 卒論提出日時を設定
-dt_target2 = datetime.datetime(2020, 2, 6, 17, 0, 0, 0) # 修論提出日時を設定
+dt_target1 = datetime.datetime(2020, 10, 15, 17, 59, 59, 999) # 卒論提出日時を設定
+dt_target2 = datetime.datetime(2020, 11, 6, 17, 0, 0, 0) # 修論提出日時を設定
 YAMABUKI = (248, 169, 0)
 YELLOW = (247,214,0)
 RED = (247, 16, 0)
