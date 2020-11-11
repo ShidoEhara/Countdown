@@ -9,7 +9,7 @@ import sys
 """ parameter """
 WIDTH = 640 # 画面幅を設定
 HIGHT = 480 # 画面高さを設定
-dt_target1 = datetime(2020, 10, 16, 9, 0, 0, 0) # コアタイムを設定
+dt_target1 = datetime(2020, 11, 1, 9, 0, 0, 0) # コアタイムを設定
 YAMABUKI = (248, 169, 0)
 YELLOW = (247,214,0)
 RED = (247, 16, 0)

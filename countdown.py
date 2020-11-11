@@ -75,8 +75,8 @@ def main():
             countdown1 = font_7seg.render("{0[0]:02d}  {0[1]:02d}    {0[2]:02d}  {0[3]:02d}  {0[4]:03.0f}".format(get_time(dt_delta1)), True, TIME_COLOR)
         else:
             countdown1 = font_7seg.render("00  00    00  00  000", True, TIME_COLOR)
-        # unit1 = font2.render("       d           h             m           s               ms", True, CHAR_COLOR) # for mac
-        unit1 = font2.render("           d                       h                 m                   s                         ms", True, CHAR_COLOR) # for raspi
+        unit1 = font2.render("       d           h             m           s               ms", True, CHAR_COLOR) # for mac
+        # unit1 = font2.render("           d                       h                 m                   s                         ms", True, CHAR_COLOR) # for raspi
         unit2 = font_mincho20.render("        日              時間             分              秒                    粍", True, CHAR_COLOR)
 
         #=== 残り時間による音楽の変更 ===#
@@ -158,8 +158,8 @@ def main():
             countdown2 = font_7seg.render("{0[0]:02d}  {0[1]:02d}    {0[2]:02d}  {0[3]:02d}  {0[4]:03.0f}".format(get_time(dt_delta2)), True, TIME_COLOR)
         else:
             countdown2 = font_7seg.render("00  00    00  00  000", True, TIME_COLOR)
-        # unit1 = font2.render("       d           h             m           s               ms", True, CHAR_COLOR) # for mac
-        unit1 = font2.render("           d                       h                 m                   s                         ms", True, CHAR_COLOR) # for raspi
+        unit1 = font2.render("       d           h             m           s               ms", True, CHAR_COLOR) # for mac
+        # unit1 = font2.render("           d                       h                 m                   s                         ms", True, CHAR_COLOR) # for raspi
         unit2 = font_mincho20.render("        日              時間             分              秒                    粍", True, CHAR_COLOR)
 
         #=== 残り時間による音楽の変更 ===#
