@@ -10,8 +10,8 @@ import sys
 #=== パラメータの設定 ===#
 WIDTH = 640 # 画面幅を設定
 HIGHT = 480 # 画面高さを設定
-dt_target1 = datetime.datetime(2020, 10, 15, 17, 59, 59, 999) # 卒論提出日時を設定
-dt_target2 = datetime.datetime(2020, 11, 6, 17, 0, 0, 0) # 修論提出日時を設定
+dt_target1 = datetime.datetime(2021, 2, 16, 9, 0, 0, 0) # 卒論提出日時を設定
+dt_target2 = datetime.datetime(2021, 2, 8, 9, 0, 0, 0) # 修論提出日時を設定
 YAMABUKI = (248, 169, 0)
 YELLOW = (247,214,0)
 RED = (247, 16, 0)
@@ -30,7 +30,7 @@ def main():
     font_mincho20 = pygame.font.Font('font/AozoraMincho-bold.ttf', 20) # 明朝体フォントの読み込み
     font_mincho30 = pygame.font.Font('font/AozoraMincho-bold.ttf', 35) # 明朝体フォントの読み込み
     # font1 = pygame.font.SysFont('arial', 50)
-    font1 = pygame.font.SysFont('arial', 35, bold=True) # raspi用
+    font1 = pygame.font.SysFont('arial', 30, bold=True) # raspi用
     font2 = pygame.font.SysFont('arial', 20, bold=True) # raspi用
     cnt = 0 # カウンタの初期化
 
@@ -67,7 +67,7 @@ def main():
             CHAR_COLOR = YAMABUKI
             TIME_COLOR = YELLOW
             ALERT_COLOR = RED
-        title1 = font_mincho30.render("卒論提出まであと", True, CHAR_COLOR)
+        title1 = font_mincho30.render("卒論発表まであと", True, CHAR_COLOR)
         title2 = font1.render("ACTIVE TIME REMAINING:", True, CHAR_COLOR)
         alert1 = font1.render("DANGER", True, ALERT_COLOR)
         alert2 = font1.render("EMERGENCY", True, ALERT_COLOR)
@@ -75,7 +75,7 @@ def main():
             countdown1 = font_7seg.render("{0[0]:02d}  {0[1]:02d}    {0[2]:02d}  {0[3]:02d}  {0[4]:03.0f}".format(get_time(dt_delta1)), True, TIME_COLOR)
         else:
             countdown1 = font_7seg.render("00  00    00  00  000", True, TIME_COLOR)
-        unit1 = font2.render("           d                       h                 m                   s                         ms", True, CHAR_COLOR)
+        unit1 = font2.render("       d           h             m           s               ms", True, CHAR_COLOR)
         unit2 = font_mincho20.render("        日              時間             分              秒                    粍", True, CHAR_COLOR)
 
         #=== 残り時間による音楽の変更 ===#
@@ -104,9 +104,9 @@ def main():
         if dt_delta1 <= 150 and dt_delta1 >= 0:
             if(cnt == 0 or cnt == 1 or cnt == 2):
                 # alertのテキストと枠描画
-                SCREEN.blit(alert1, [35, 95])
+                SCREEN.blit(alert1, [22, 99])
                 pygame.draw.rect(SCREEN, RED, Rect(20, 99, 152, 33), 3)
-                SCREEN.blit(alert2, [200, 95])
+                SCREEN.blit(alert2, [182, 99])
                 pygame.draw.rect(SCREEN, RED, Rect(180, 99, 224, 33), 3)
                 # 斜め線の描画
                 pygame.draw.line(SCREEN, RED, (540, 50), (640, -50), 30)
@@ -115,9 +115,9 @@ def main():
                 pygame.draw.line(SCREEN, RED, (580, 160), (640, 100), 30)
         elif dt_delta1 < 0:
             # alertのテキストと枠描画
-            SCREEN.blit(alert1, [35, 95])
+            SCREEN.blit(alert1, [22, 99])
             pygame.draw.rect(SCREEN, RED, Rect(20, 99, 152, 33), 3)
-            SCREEN.blit(alert2, [200, 95])
+            SCREEN.blit(alert2, [182, 99])
             pygame.draw.rect(SCREEN, RED, Rect(180, 99, 224, 33), 3)
             # 斜め線の描画
             pygame.draw.line(SCREEN, RED, (540, 50), (640, -50), 30)
@@ -151,13 +151,13 @@ def main():
             CHAR_COLOR = YAMABUKI
             TIME_COLOR = YELLOW
             ALERT_COLOR = RED
-        title3 = font_mincho30.render("修論提出まであと", True, CHAR_COLOR)
+        title3 = font_mincho30.render("修論発表まであと", True, CHAR_COLOR)
         title4 = font1.render("ACTIVE TIME REMAINING:", True, CHAR_COLOR)
         if get_time(dt_delta2)[0] >= 0:
             countdown2 = font_7seg.render("{0[0]:02d}  {0[1]:02d}    {0[2]:02d}  {0[3]:02d}  {0[4]:03.0f}".format(get_time(dt_delta2)), True, TIME_COLOR)
         else:
             countdown2 = font_7seg.render("00  00    00  00  000", True, TIME_COLOR)
-        unit1 = font2.render("           d                       h                 m                   s                         ms", True, CHAR_COLOR)
+        unit1 = font2.render("       d           h             m           s               ms", True, CHAR_COLOR)
         unit2 = font_mincho20.render("        日              時間             分              秒                    粍", True, CHAR_COLOR)
 
         #=== 残り時間による音楽の変更 ===#
@@ -186,9 +186,9 @@ def main():
         if dt_delta2 <= 150 and dt_delta2 >= 0:
             if(cnt == 0 or cnt == 1 or cnt == 2):
                 # alertのテキストと枠描画
-                SCREEN.blit(alert1, [35, 335])
+                SCREEN.blit(alert1, [22, 339])
                 pygame.draw.rect(SCREEN, RED, Rect(20, 339, 152, 33), 3) # raspi用
-                SCREEN.blit(alert2, [200, 335])
+                SCREEN.blit(alert2, [182, 339])
                 pygame.draw.rect(SCREEN, RED, Rect(180, 339, 224, 33), 3) # raspi用
                 # 斜め線の描画
                 pygame.draw.line(SCREEN, RED, (540, 290), (590, 240), 30)
@@ -197,9 +197,9 @@ def main():
                 pygame.draw.line(SCREEN, RED, (580, 400), (640, 340), 30)
         elif dt_delta2 < 0:
             # alertのテキストと枠描画
-            SCREEN.blit(alert1, [35, 335])
+            SCREEN.blit(alert1, [22, 339])
             pygame.draw.rect(SCREEN, RED, Rect(20, 339, 152, 33), 3) # raspi用
-            SCREEN.blit(alert2, [200, 335])
+            SCREEN.blit(alert2, [182, 339])
             pygame.draw.rect(SCREEN, RED, Rect(180, 339, 224, 33), 3) # raspi用
             # 斜め線の描画
             pygame.draw.line(SCREEN, RED, (540, 290), (590, 240), 30)

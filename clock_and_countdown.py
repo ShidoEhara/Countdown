@@ -32,7 +32,7 @@ def main():
     font_minchoS = pygame.font.Font('font/AozoraMincho-bold.ttf', 20) # 明朝体フォントの読み込み
     font_L = pygame.font.SysFont('arial', 60, bold=True)
     font_M = pygame.font.SysFont('arial', 40, bold=True)
-    font_S = pygame.font.SysFont('arial', 20, bold=True) # raspi用
+    font_S = pygame.font.SysFont('arial', 15, bold=True) # raspi用
     cnt = 0 # カウンタの初期化
 
     #=== 音楽の再生 ===#
@@ -68,7 +68,7 @@ def main():
         title2 = font_S.render("Japan Standard Time", True, YAMABUKI)
         title3 = font_M.render("Live", True, YAMABUKI)
         date = font_7segL.render(dt_now.strftime("%H  %M  %S"), True, YELLOW)
-        unit1 = font_M.render(" h              m              s", True, YAMABUKI)
+        unit1 = font_M.render(" h         m         s", True, YAMABUKI)
         unit2 = font_minchoM.render("時          分           秒", True, YAMABUKI)
         # alert1 = font_L.render("DANGER", True, (RED))
         # alert1 = font_L.render("WARNING", True, (RED))
@@ -76,7 +76,7 @@ def main():
         pygame.draw.rect(SCREEN, (0, 0, 0), Rect(540, 0, 100, 155), 30)
         SCREEN.blit(title1, [20, 20])
         SCREEN.blit(title2, [90, 80])
-        SCREEN.blit(title3, [70, 115])
+        SCREEN.blit(title3, [70, 107])
         SCREEN.blit(date, [105, 140])
         SCREEN.blit(unit1, [225, 135])
         SCREEN.blit(unit2, [230, 180])
